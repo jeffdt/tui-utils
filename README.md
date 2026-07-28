@@ -5,25 +5,33 @@ teleport, backlog, ...). Each top-level directory is a skill; vendor this
 whole repo into a consumer repo via `git subtree` so `.claude/skills/`
 resolves without any plugin install step.
 
+The subtree prefix must be exactly `.claude/skills` (not a nested
+subdirectory) so each skill lands at `.claude/skills/<skill>/SKILL.md` --
+one level deep, which is what Claude Code's auto-discovery requires. This
+only works cleanly because these consumer repos don't otherwise keep
+app-specific skills outside this shared set; if that changes, keep
+app-specific skills in a separate, non-subtreed directory instead of
+`.claude/skills`.
+
 ## Adding this to a new repo
 
 ```sh
-git subtree add --prefix=.claude/skills/tui-utils <path-or-url-to-this-repo> main --squash
+git subtree add --prefix=.claude/skills <path-or-url-to-this-repo> main --squash
 ```
 
-This lands every skill at `.claude/skills/tui-utils/<skill>/SKILL.md`,
-which Claude Code auto-discovers.
+This lands every skill at `.claude/skills/<skill>/SKILL.md`, which Claude
+Code auto-discovers.
 
 ## Pulling updates
 
 ```sh
-git subtree pull --prefix=.claude/skills/tui-utils <path-or-url-to-this-repo> main --squash
+git subtree pull --prefix=.claude/skills <path-or-url-to-this-repo> main --squash
 ```
 
 ## Pushing changes made from inside a consumer repo back here
 
 ```sh
-git subtree push --prefix=.claude/skills/tui-utils <path-or-url-to-this-repo> main
+git subtree push --prefix=.claude/skills <path-or-url-to-this-repo> main
 ```
 
 Prefer editing skills in this repo directly and pulling into consumers,
