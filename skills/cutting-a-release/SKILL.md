@@ -16,9 +16,18 @@ Shipped changes reach `main` via PR (see this repo's AGENTS.md/CLAUDE.md for
 its own PR conventions), and the version bump rides in that PR. Once it has
 merged, cut the tag and update the tap. The tap is a separate repo,
 `jeffdt/homebrew-tap`; clone it if it isn't already checked out.
-`.claude/skills/cutting-a-release/release.sh` expects it at
+`$CLAUDE_PLUGIN_ROOT/skills/cutting-a-release/release.sh` expects it at
 `~/code/homebrew-tap`; override with `<FORMULA>_TAP_DIR` if it lives
 elsewhere (see the script's header comment for the exact env var name).
+
+This skill ships as part of the `tui-utils` plugin, so the script lives in
+the plugin install, not this repo -- invoke it as
+`$CLAUDE_PLUGIN_ROOT/skills/cutting-a-release/release.sh` (Claude Code sets
+`$CLAUDE_PLUGIN_ROOT` for the running session). It reads the target app's
+`Cargo.toml` via `git rev-parse --show-toplevel` from the current working
+directory, so run it with this app's repo as the cwd -- it works correctly no
+matter where the script itself is installed. `release.sh` below is shorthand
+for that full path.
 
 `release.sh` automates the mechanical steps:
 

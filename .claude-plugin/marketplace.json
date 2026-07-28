@@ -1,0 +1,22 @@
+{
+  "name": "tui-utils",
+  "owner": {
+    "name": "jeffdt",
+    "email": "jeffdt@gmail.com"
+  },
+  "metadata": {
+    "description": "Shared Claude Code skills for jeffdt's Rust TUI apps.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "tui-utils",
+      "description": "Shared Claude Code skills for jeffdt's Rust TUI apps: mockup, vhs-recording, cutting-a-release, live-preview.",
+      "version": "0.1.0",
+      "author": {
+        "name": "jeffdt"
+      },
+      "source": "./"
+    }
+  ]
+}
