@@ -13,10 +13,19 @@ app-specific skills outside this shared set; if that changes, keep
 app-specific skills in a separate, non-subtreed directory instead of
 `.claude/skills`.
 
+This repo is private, unlike the public consumer repos. That's fine:
+`git subtree add`/`pull` vendor the skill files directly into a consumer
+repo's own commit history, so once that's run, the files are ordinary
+tracked files there -- a plain `git clone` of a public consumer repo gets
+them with no dependency on this repo's visibility. Private access only
+matters when actively running `git subtree pull`/`push` against this repo
+to sync new changes, which only jeffdt (or whoever has read access here)
+needs to do.
+
 ## Adding this to a new repo
 
 ```sh
-git subtree add --prefix=.claude/skills <path-or-url-to-this-repo> main --squash
+git subtree add --prefix=.claude/skills git@github.com:jeffdt/tui-utils.git main --squash
 ```
 
 This lands every skill at `.claude/skills/<skill>/SKILL.md`, which Claude
@@ -25,13 +34,13 @@ Code auto-discovers.
 ## Pulling updates
 
 ```sh
-git subtree pull --prefix=.claude/skills <path-or-url-to-this-repo> main --squash
+git subtree pull --prefix=.claude/skills git@github.com:jeffdt/tui-utils.git main --squash
 ```
 
 ## Pushing changes made from inside a consumer repo back here
 
 ```sh
-git subtree push --prefix=.claude/skills <path-or-url-to-this-repo> main
+git subtree push --prefix=.claude/skills git@github.com:jeffdt/tui-utils.git main
 ```
 
 Prefer editing skills in this repo directly and pulling into consumers,
