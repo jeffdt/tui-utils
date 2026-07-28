@@ -13,14 +13,11 @@ app-specific skills outside this shared set; if that changes, keep
 app-specific skills in a separate, non-subtreed directory instead of
 `.claude/skills`.
 
-This repo is private, unlike the public consumer repos. That's fine:
-`git subtree add`/`pull` vendor the skill files directly into a consumer
-repo's own commit history, so once that's run, the files are ordinary
-tracked files there -- a plain `git clone` of a public consumer repo gets
-them with no dependency on this repo's visibility. Private access only
-matters when actively running `git subtree pull`/`push` against this repo
-to sync new changes, which only jeffdt (or whoever has read access here)
-needs to do.
+This repo is public, matching the consumer repos. `git subtree add`/`pull`
+vendor the skill files directly into a consumer repo's own commit history,
+so once that's run, the files are ordinary tracked files there -- a plain
+`git clone` of a consumer repo gets them with no dependency on this repo at
+all. Anyone can also subtree this repo into their own project directly.
 
 ## Adding this to a new repo
 
