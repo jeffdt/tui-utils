@@ -2,9 +2,10 @@
 
 Shared Claude Code skills for jeffdt's TUI apps (rolomux, boomerang,
 teleport, backlog, ...): `mockup`, `vhs-recording`, `cutting-a-release`,
-`live-preview`. This repo is a Claude Code plugin and its own marketplace --
-install it once and its skills are available in every Claude Code session on
-this machine, regardless of which repo you're in.
+`live-preview`, plus the `/ship-it` command. This repo is a Claude Code
+plugin and its own marketplace -- install it once and its skills are
+available in every Claude Code session on this machine, regardless of which
+repo you're in.
 
 ## Installing
 
@@ -50,4 +51,6 @@ skills/
   vhs-recording/
   cutting-a-release/
   live-preview/
+commands/
+  ship-it.md        # /ship-it
 ```

@@ -1,7 +1,7 @@
 {
   "name": "tui-utils",
   "version": "0.1.0",
-  "description": "Shared Claude Code skills for jeffdt's Rust TUI apps: mockup, vhs-recording, cutting-a-release, live-preview.",
+  "description": "Shared Claude Code skills for jeffdt's Rust TUI apps: mockup, vhs-recording, cutting-a-release, live-preview. Also includes the /ship-it command.",
   "author": {
     "name": "jeffdt",
     "email": "jeffdt@gmail.com"
