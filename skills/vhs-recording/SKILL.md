@@ -295,6 +295,29 @@ inner REPL with its own explicit exit call, then exiting the outer shell)
 over relying on a single `Ctrl+D` to cascade through multiple nested
 programs.
 
+## Live-linked by jeffdt.com
+
+rolomux's `docs/images/search.gif`, boomerang's `docs/images/quick-capture.gif`,
+and teleport's `docs/images/worktree.gif` are hot-linked from
+`jeffdt/homepage`'s `index.html` via jsDelivr's GitHub CDN
+(`cdn.jsdelivr.net/gh/jeffdt/<repo>@main/docs/images/<file>.gif`), not copied.
+This keeps the homepage preview in sync automatically since it iterates far
+less often than these tool repos do, but it means:
+
+- **Don't rename or move those three specific files, or change their
+  `Output` path in the `.tape`, without also updating `index.html` in
+  `jeffdt/homepage`.** Nothing here will error if you do — the homepage's
+  `<img>` just quietly 404s, and nothing in this repo's CI or workflow would
+  ever surface that.
+- Keep the re-rendered file's size in the same tens-to-low-hundreds-of-KB
+  range as before. VHS's limited terminal palette makes this easy by
+  default, but if a re-record balloons past ~300KB (e.g. from a much longer
+  recording or a theme with more color variation), that now ships to every
+  visitor of jeffdt.com's homepage, not just README viewers.
+- jsDelivr edge-caches for up to 12h and browsers for 7 days, so a fresh
+  re-record won't show up on the homepage instantly. Don't chase that; it's
+  expected.
+
 ## Worked examples
 
 boomerang's `docs/demo/` has three complete, checked-in reference tapes,
